@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>>Random Tournament Generator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>
+      Random<br />
+      Tournament<br />
+      Generator
+    </h1>
+    <form id="tournament-settings">
+      <label for="tournament-name">Tournament name:</label>
+      <input type="text" id="tournament-name" required />
+      <br />
+      <label for="num-players">Number of players:</label>
+      <input type="number" id="num-players" min="2" required />
+      <br />
+      <button type="submit">Create Tournament</button>
+    </form>
+
+    <div id="tournament"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+body {
+  font-family: "MedievalSharp", cursive;
+  background-color: #f4e8c1;
+  color: #5a3921;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+  margin: 0.5em 0;
+}
+
+h1 {
+  border-bottom: #5a3921 dashed 2px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+input {
+  margin: 0.5em 0;
+  font-family: "Cinzel", serif;
+  color: #5a3921;
+  border-radius: 5px;
+  font-size: 25px;
+}
+
+button {
+  font-family: "Cinzel", serif;
+  background-color: #e4c580;
+  color: #5a3921;
+  border: none;
+  padding: 0.5em;
+  cursor: pointer;
+  margin: 1em 0;
+}
+
+button:hover {
+  background-color: #d5b063;
+}
+
+#tournament {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.match {
+  margin: 1em;
+}
+
+.score {
+  margin-left: 0.5em;
+}
+
+#num-players {
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  font-size: 25px;
+}
+
+#num-players::-webkit-inner-spin-button,
+#num-players::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.winner-modal {
+  width: 500px;
+  height: 500px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: green;
+  font-weight: 700;
+  font-size: 2em;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+  background-color: #e4c580;
+  border: 5px solid gold;
+  text-align: center;
+  padding: 20px;
+  border-radius: 50%;
+  font-size: 40px;
+}
+
+.winner-modal p {
+  top: 40%;
+  margin: 50px;
+}
+
+.close-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  border: black 3px solid;
+  color: red;
+  margin-bottom: 50px;
+  font-size: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
+.match-title {
+  text-decoration: underline;
+  font-size: 1.2rem;
+}
