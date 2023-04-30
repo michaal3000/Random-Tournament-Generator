@@ -128,14 +128,39 @@ function displayBracket(container, bracket) {
       bracketElement.getElementsByClassName("winner")
     );
     const winners = [];
+    let invalidMatch = false;
 
-    winnerCheckboxes.forEach((checkbox) => {
-      if (checkbox.checked) {
-        winners.push(checkbox.dataset.player);
+    for (let i = 0; i < winnerCheckboxes.length; i += 2) {
+      const checkbox1 = winnerCheckboxes[i];
+      const checkbox2 = winnerCheckboxes[i + 1];
+
+      if (checkbox1 && checkbox2) {
+        if (
+          (checkbox1.checked && checkbox2.checked) ||
+          (!checkbox1.checked && !checkbox2.checked)
+        ) {
+          invalidMatch = true;
+          break;
+        } else {
+          winners.push(
+            checkbox1.checked
+              ? checkbox1.dataset.player
+              : checkbox2.dataset.player
+          );
+        }
+      } else if (checkbox1 && checkbox1.checked) {
+        winners.push(checkbox1.dataset.player);
+      } else if (checkbox2 && checkbox2.checked) {
+        winners.push(checkbox2.dataset.player);
+      } else {
+        invalidMatch = true;
+        break;
       }
-    });
+    }
 
-    if (winners.length > 1) {
+    if (invalidMatch) {
+      alert("Please select exactly one winner for each match.");
+    } else if (winners.length > 1) {
       const nextRoundBracket = createBracket(winners);
       displayBracket(container, nextRoundBracket);
     } else if (winners.length === 1) {
@@ -152,15 +177,6 @@ function displayBracket(container, bracket) {
 
 function startApp() {
   const container = document.getElementById("tournament-container");
-  const startBtn = document.getElementById("start-tournament");
-  startBtn.addEventListener("click", startApp());
 }
 
 startApp();
-
-//Document
-// This code listens for the submission of the form with the id "tournament-settings". When submitted, the function creates a tournament bracket based on the name of the tournament, the number of players, and the list of player names entered into the form. The code then generates a random bracket and displays it in the DOM. The user can then select winners for each match and generate the next round of the bracket or declare a winner if there is only one remaining.
-
-// The code uses three functions: createBracket(), shuffle(), and displayBracket(). The createBracket() function takes an array of player names and returns an array of matches. The shuffle() function takes an array and returns the same array with the elements shuffled randomly. The displayBracket() function takes a container element and a bracket object and displays the bracket in the container element along with checkboxes for selecting winners.
-
-// The startApp() function initializes the application by setting event listeners and starting the app. It gets the DOM elements needed and sets an event listener on the "start-tournament" button that when clicked, calls the startApp() function.
